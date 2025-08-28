@@ -7,12 +7,16 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+// Get app ready to serve static files fro public
+// like css and images
 const assetsPath = path.join(__dirname, 'public');
 app.use(express.static(assetsPath));
 
-const indexRouter = require('./routes/indexRouter');
+const indexRouter = require('./routes/indexRouter.js');
+const newRouter = require('./routes/newRouter.js');
 
 app.use('/', indexRouter);
+app.use('/new', newRouter);
 
 app.use((err, req, res, next) => {
   console.error(err);
