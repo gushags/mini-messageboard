@@ -6,10 +6,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles.css" />
-    <title>Home Page</title>
+    <title><%= title %></title>
   </head>
   <body>
-    <h1>Home Page</h1>
-    <%= copy %>
+    <h1><%= title %></h1>
+    <ul>
+      <% messages.map((message) => { %>
+      <li>User: <%= message.user %></li>
+      <li>Message: <%= message.text %></li>
+      <li>Added: <%= message.added %></li>
+      <% }) %>
+    </ul>
   </body>
 </html>
