@@ -1,3 +1,4 @@
+// api/db.js
 const messages = [
   {
     text: 'Hi there!',
