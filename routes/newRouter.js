@@ -1,9 +1,8 @@
 // newRouter.js
 const { Router } = require('express');
-const { getMessages } = require('./indexRouter');
+const messages = require('../api/db');
 
 const newRouter = Router();
-const messages = getMessages();
 
 newRouter.get('/', (req, res) => {
   res.render('form');
