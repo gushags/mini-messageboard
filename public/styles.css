@@ -1,5 +1,7 @@
 /* styles.css */
 
+@import url(./css-reset-josh.css);
+
 body {
   color: green;
 }
