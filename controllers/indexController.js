@@ -7,7 +7,7 @@ function getMessageByUser(req, res) {
   const message = messages.find((message) => message.user === messageUser);
 
   if (!message) {
-    throw new Error('Message not found');
+    return res.status(404).render('404', { missingField: messageUser });
   }
   res.render('message', { message: message }); // Render 'message.ejs' and pass the message variable
 }

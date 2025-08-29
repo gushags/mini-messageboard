@@ -66,3 +66,16 @@ h2 {
   border: none;
   font-size: 1.5rem;
 }
+
+.not-found {
+  text-align: center;
+}
+
+.not-found > h1 {
+  margin: 50px 0;
+  color: red;
+}
+
+.not-found > h3 {
+  margin: 25px 0;
+}
