@@ -5,13 +5,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Message</title>
   </head>
   <body>
-    <a href="/">Home</a>
-    <h2>Message</h2>
-    <h4>Date added: <%= message.added %></h4>
-    <h4>Author: <%= message.user %></h4>
-    <p><%= message.text %></p>
+    <main class="message-single">
+      <a href="/">Home</a>
+      <h2>Message</h2>
+      <h4><strong>Author: <%= message.user %></strong></h4>
+      <p><%= message.text %></p>
+      <p id="date-added">Date Added: <%= message.added %></p>
+    </main>
   </body>
 </html>

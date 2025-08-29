@@ -17,11 +17,52 @@ hr {
   margin: 10px 0;
 }
 
-h1 {
+h1,
+h2 {
   margin-bottom: 40px;
   text-align: center;
 }
 
 .newpost {
   margin-bottom: 25px;
+}
+
+.message,
+.message-single {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.message-single {
+  border: 2px solid green;
+  border-radius: 25px;
+  padding: 45px;
+  line-height: 2rem;
+}
+
+#date-added-home,
+#date-added {
+  margin-top: 7px;
+  font-size: 0.7rem;
+}
+#date-added {
+  margin-top: 20px;
+}
+
+.message > label {
+  font-size: 1.5rem;
+}
+
+#message {
+  height: 250px;
+}
+
+#message-btn {
+  margin-top: 10px;
+  background-color: green;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
 }
