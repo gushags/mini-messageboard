@@ -2,6 +2,9 @@ const express = require('express');
 const path = require('node:path');
 const app = express();
 
+// Allow data to be read from req.body
+app.use(express.urlencoded({ extended: true }));
+
 // Get application ready to use ejs templates
 // from 'views' folder
 app.set('views', path.join(__dirname, 'views'));
@@ -12,7 +15,7 @@ app.set('view engine', 'ejs');
 const assetsPath = path.join(__dirname, 'public');
 app.use(express.static(assetsPath));
 
-const indexRouter = require('./routes/indexRouter.js');
+const { indexRouter } = require('./routes/indexRouter.js');
 const newRouter = require('./routes/newRouter.js');
 
 app.use('/', indexRouter);
