@@ -2,19 +2,14 @@
 
 const messages = require('../api/db'); // the messages database
 
-async function getMessageByDateAdded(req, res) {
-  const { messageAdded } = req.params;
-
-  const message = await getMessage(Number(messageAdded));
+function getMessageByUser(req, res) {
+  const { messageUser } = req.params;
+  const message = messages.find((message) => message.user === messageUser);
 
   if (!message) {
     throw new Error('Message not found');
   }
-  return message;
+  res.render('message', { message: message }); // Render 'message.ejs' and pass the message variable
 }
 
-async function getMessage(messageAdded) {
-  return messages.find((message) => message.added === messageAdded);
-}
-
-module.exports = { getMessageByDateAdded };
+module.exports = { getMessageByUser };

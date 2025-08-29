@@ -20,8 +20,8 @@ const indexRouter = require('./routes/indexRouter.js');
 const newRouter = require('./routes/newRouter.js');
 
 // Routers
-app.use('/', indexRouter);
 app.use('/new', newRouter);
+app.use('/', indexRouter);
 
 // Errorhandling router
 app.use((err, req, res, next) => {
