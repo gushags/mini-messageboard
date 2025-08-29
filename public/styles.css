@@ -4,4 +4,24 @@
 
 body {
   color: green;
+  width: 75%;
+  margin: 50px auto;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0px;
+}
+
+hr {
+  margin: 10px 0;
+}
+
+h1 {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.newpost {
+  margin-bottom: 25px;
 }
