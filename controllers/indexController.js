@@ -1,15 +1,11 @@
 // controllers/indexController.js
 
-const messages = require('../api/db'); // the messages database
+const db = require('../db/queries');
 
-function getMessageByUser(req, res) {
-  const { messageUser } = req.params;
-  const message = messages.find((message) => message.user === messageUser);
-
-  if (!message) {
-    return res.status(404).render('404', { missingField: messageUser });
-  }
-  res.render('message', { message: message }); // Render 'message.ejs' and pass the message variable
+async function getMessageById(req, res) {
+  const { messageId } = req.params;
+  const message = await db.getMessageById(messageId);
+  res.render('message', { message: message });
 }
 
-module.exports = { getMessageByUser };
+module.exports = { getMessageById };
