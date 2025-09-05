@@ -8,6 +8,6 @@ const {
 const indexRouter = Router();
 
 indexRouter.get('/', getAllMessages);
-indexRouter.get('/:messageUser', getMessageById);
+indexRouter.get('/:id', getMessageById);
 
 module.exports = indexRouter;

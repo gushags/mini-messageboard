@@ -8,8 +8,8 @@ async function getAllMessages(req, res) {
 }
 
 async function getMessageById(req, res) {
-  const { messageId } = req.params;
-  const message = await db.getMessageById(messageId);
+  const { id } = req.params;
+  const message = await db.getMessageById(id);
   res.render('message', { message: message });
 }
 
