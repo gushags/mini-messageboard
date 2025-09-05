@@ -25,8 +25,12 @@ VALUES
 async function main() {
   console.log('seeding...');
   const client = new Client({
-    connectionString: 'postgresql://jeff@localhost:5432/top_users',
+    connectionString:
+      'postgresql://messages_postgres_user:0oWUcpnAckTj5ejxDFpL7uU4QM6jb80Z@dpg-d2tmfm15pdvs739neth0-a.oregon-postgres.render.com/messages_postgres',
   });
+
+  // Local is: 'postgresql://jeff@localhost:5432/top_users'
+
   await client.connect();
   await client.query(SQL);
   await client.query(SQL2);
