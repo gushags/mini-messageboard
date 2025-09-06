@@ -1,13 +1,29 @@
 // db/pool.js
+require('dotenv').config();
 const { Pool } = require('pg');
-const { ENV_VARS } = require('../constants/envs');
 
-// All of the following properties should be read from environment variables
-// We're hardcoding them here for simplicity
-module.exports = new Pool({
-  host: ENV_VARS.HOST, // or wherever the db is hosted
-  user: ENV_VARS.USER,
-  database: ENV_VARS.DATABASE,
-  password: ENV_VARS.PWD,
-  port: ENV_VARS.DB_PORT, // The default port
+const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
+
+const pool = new Pool({
+  host: PGHOST,
+  database: PGDATABASE,
+  username: PGUSER,
+  password: PGPASSWORD,
+  port: 5432,
+  ssl: {
+    require: true,
+  },
 });
+
+async function getPgVersion() {
+  const client = await pool.connect();
+  try {
+    const result = await client.query('SELECT version()');
+    console.log(result.rows[0]);
+  } finally {
+    client.release();
+  }
+}
+getPgVersion();
+
+module.exports = { pool };
